@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(){
+	int n = 1; int q = 0;
+	while (q == 0){
+		if (n % 3 == 2 && n % 5 == 3 && n % 7 == 4) {
+			q = 1;
+		} else {
+			n = n + 1;
+			continue;
+		}
+	} printf("%d", n);
+	
+	return 0;
+}
