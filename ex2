@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+/* 2) Escreva um programa em C que verifique se um determinado inteiro positivo que é lido via teclado, é ou não primo. */
+
+int main(){
+	int n; int i; int q = 0;
+	printf("Digite um numero: ");
+	scanf("%d", &n);
+	
+	for (i = 1; i <= n; i++){
+		if (n % i == 0){
+			q += 1;
+		}
+	}
+	if (q == 2){
+		printf("O numero %d eh primo", n);
+	} else {
+		printf("O numero %d nao eh primo", n);
+	}
+}
