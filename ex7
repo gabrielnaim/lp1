@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+struct Aluno{
+  char nome[10];
+  float nota;
+};
+
+
+int main(void) {
+  int n; int i; int j; struct Aluno aux; float somaNotas = 0; float mediaTurma;
+  
+  printf("Numero de alunos (Minimo 5): ");
+  scanf("%d", &n);
+  while (n < 5){
+    printf("Numero de alunos (Minimo 5): ");
+    scanf("%d", &n);
+  }
+  struct Aluno alunos[n];
+  struct Aluno melhoresAlunos[5];
+
+  for (i = 0; i < n; i++){
+    printf("Nome do aluno: ");
+    scanf("%s", alunos[i].nome);
+    printf("Nota do aluno: ");
+    scanf("%f", &alunos[i].nota);
+  }
+
+  for (i = 0; i < n; i++){
+    for (j = i + 1; j < n; j++){
+      if (alunos[i].nota < alunos[j].nota){
+        aux = alunos[i];
+        alunos[i] = alunos[j];
+        alunos[j] = aux;
+      }
+    }
+  }
+
+  
+  for (i = 0; i < n; i++){
+    somaNotas += alunos[i].nota;
+  }
+
+  mediaTurma = somaNotas/n;
+
+
+  for (i = 0; i < 5; i++){
+    if (alunos[i].nota > mediaTurma){
+      melhoresAlunos[i] = alunos[i];
+    } else {
+      melhoresAlunos[i].nota = 0;  
+    }
+  }
+
+  for (i = 0; i < 5; i++){
+    printf("%s: ", melhoresAlunos[i].nome);
+    printf("%.2f\n", melhoresAlunos[i].nota);
+  }
+
+
+  return 0;
+}
