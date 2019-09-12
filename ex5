@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(){
+	float valorCentavos; int valor; int n = 5; int q = 0;
+	
+	int moedas[] = {1, 5, 10, 25, 50, 100};
+
+	printf("Digite um valor de R$0,01 a R$1,00: ");
+	scanf("%f", &valorCentavos);
+
+	while (valorCentavos < 0.01 || valorCentavos > 1.00){
+		printf("Digite um valor de R$0,01 a R$1,00: ");
+		scanf("%f", &valorCentavos);
+	}
+
+  valor = (valorCentavos * 100);
+
+	void contaMoedas(int valor, int moedas[], int n, int q);
+
+	contaMoedas(valor, moedas, n, q);
+
+	return 0;
+
+}
+
+void contaMoedas(int valor, int moedas[], int n, int q){
+  while(n >= 0){
+    if (valor >= moedas[n]){
+      q = q + (valor / moedas[n]);
+      valor = valor % moedas[n];
+      return contaMoedas(valor, moedas, (n-1), q);
+    } else {
+      return contaMoedas(valor, moedas, (n-1), q);
+    }
+  }
+  
+  printf("Total de moedas: %d", q);
+
+}
