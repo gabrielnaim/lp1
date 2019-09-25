@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+/* 9) Escrever um programa em C que calcule e imprima o número de
+caracteres distintos presentes em uma cadeia de caracteres dada.
+Considerar o tamanho máximo da cadeia como sendo de 80 colunas. */
+
+int main(){
+	int n; int i; int j; int q = 0; int t = 0;  
+	// n: tamanho da cadeia --- i, j: index
+	// q: booleano auxiliar --- t: quantidade de distintos
+	
+	printf("Tamanho da cadeia: ");
+	scanf("%d", &n);
+
+	int cadeia[n];
+	int cadeia2[n];
+
+	for(i = 0; i < n; i++){
+		printf("Elemento %d: ", i);
+		scanf("%d", &cadeia[i]);
+	}
+
+	for(i = 0; i < n; i++){
+		for(j = 0; j < (t + 1); j++){
+			if (cadeia2[j] == cadeia[i]){
+				q = 1;
+			}
+		} if (q == 0){
+			cadeia2[t] = cadeia[i];
+			t = t + 1;
+		} else {
+			q = 0;
+		}
+	}
+	
+	int distintos[t];
+	
+	for(i = 0; i < t; i++){
+		distintos[i] = cadeia2[i];
+	}
+	
+	printf("Quantidade de elementos distintos: %d.\n", t);
+	
+	printf("Elementos distintos: ");
+	for(i = 0; i < (t - 1); i++){
+		printf("%d, ", distintos[i]);
+	} printf("%d.\n", distintos[t - 1]);
+	
+}
