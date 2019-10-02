@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+/* 13) Dados três vetores com 10 posições cada um, preenchidos com números inteiros,
+fazer um programa em C que, após a leitura dos vetores coloque-os em ordem crescente. */
+
+int main(){
+	int n;
+	
+	printf("Tamanho do vetor: ");
+	scanf("%d", &n);
+	
+	void ordenaVet(int vet[], int n);
+	void preencheVet(int vet[], int n);
+	void printVet(int vet[], int n);
+	
+	int vet1[n]; preencheVet(vet1, n);
+	//int vet2[n]; preencheVet(vet2, n);
+	//int vet3[n]; preencheVet(vet3, n);
+
+	ordenaVet(vet1, n);
+	
+	printVet(vet1, n);
+
+	return 0;
+	
+}
+
+void printVet(int vet[], int n){
+	int i;
+	for (i = 0; i < (n-1); i++){
+		printf("%d, ", vet[i]);
+	} printf("%d.", vet[n-1]);
+	printf("\n");
+}
+
+void preencheVet(int vet[], int n){
+	int i; 
+	for (i = 0; i < n; i++){
+		printf("Elemento %d: ", i);
+		scanf("%d", &vet[i]);
+	} printf("\n");
+}
+
+void ordenaVet(int vet[], int n){
+	int i; int j; int aux;
+	for (i = 0; i < n; i++){
+    	for (j = i + 1; j < n; j++){
+      		if (vet[j] < vet[i]){
+        		aux = vet[j];
+        		vet[j] = vet[i];
+        		vet[i] = aux;
+      		}
+    	}
+  	}
+}
