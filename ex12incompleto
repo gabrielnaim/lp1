@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main(void) {
+  
+  int tamanhoNumero(char numero[]);
+  void lerNumero();
+  void printNumero(char numero[], int n);
+
+  lerNumero();
+
+}
+
+int tamanhoNumero(char numero[]){
+  int i = 0; int n = 0;
+  while (numero[i] != '\0'){
+    i += 1; n += 1;
+  }
+
+  return n;
+
+}
+
+void lerNumero(){
+  int n = 0; int i; char numero[4];
+
+  printf("Digite um numero de até 4 casas decimais: ");
+  scanf("%s", numero);
+  while(tamanhoNumero(numero) > 4){
+    printf("Digite um numero de até 4 casas decimais: ");
+    scanf("%s", numero);
+  }
+
+}
+
+void printNumero(char numero[], int n){
+  if(n == 4){
+    if(numero[0] == '1'){
+      printf("Mil, ");
+    } else if (numero[0] == '2'){
+      printf("Dois mil, ");
+    } else if (numero[0] == '3'){
+      printf("Tres mil, ");
+    } else if (numero[0] == '4'){
+      printf("Quatro mil, ");
+    } else if (numero[0] == '5'){
+      printf("Cinco mil, ");
+    } else if (numero[0] == '6'){
+      printf("Seis mil, ");
+    } else if (numero[0] == '7'){
+      printf("Sete mil, ");
+    } else if (numero[0] == '8'){
+      printf("Oito mil, ");
+    } else if (numero[0] == '9'){
+      printf("Nove mil, ");
+    }
+  }
+}
+
