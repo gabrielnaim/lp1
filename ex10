@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+/* 10)Escrever um programa em C que calcule a frequência de uso de cada
+palavra dentro de uma cadeia de caracteres que possui diversas palavras.
+Considerar o tamanho máximo da cadeia como sendo de 80 colunas. */
+
+int main(){
+	
+	int i = 0; int j = 0; int k = 0; int q = 0; int n = 0;
+	
+	char cadeia[80];
+	char palavra[10];
+	
+	printf("Cadeia: ");
+	scanf("%s", cadeia);
+	
+	printf("Palavra: ");
+	scanf("%s", palavra);
+	
+	while(cadeia[i] != '\0'){
+		if(cadeia[j] == palavra[k]){
+			j += 1; k += 1;
+		} else {
+			i += 1;
+			j = i;
+			k = 0;
+		}
+		if(palavra[k] == '\0'){
+			n = n + 1;
+			i += 1;
+			j = i;
+			k = 0;
+		}
+	}
+	
+	if(n == 0){
+		printf("A palavra '%s' nao se repete na cadeia '%s'.", palavra, cadeia);
+	} else if(n == 1){
+		printf("A palavra '%s' se repete %d vez na cadeia '%s'.", palavra, n, cadeia);
+	} else {
+		printf("A palavra '%s' se repete %d vezes na cadeia '%s'.", palavra, n, cadeia);
+	}
+	
+	return 0;
+		
+}
