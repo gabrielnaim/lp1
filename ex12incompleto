@@ -3,7 +3,8 @@
 int main(void) {
 
   int tamanhoNumero(char numero[]);
-  void printNumero(char numero[]);
+  void printNumero(char numero[])
+  void mudaNumero(char numero[]);
 
   char numero[5];
 
@@ -14,20 +15,8 @@ int main(void) {
     scanf("%s", numero);
   }
 
-  if(tamanhoNumero(numero) == 1){
-    numero[3] = numero[0];
-    numero[0] = 0;
-    numero[1] = 0;
-    numero[2] = 0;
-    numero[4] = '\0';
-  } else if(tamanhoNumero(numero) == 2){
-    numero 
-  }
 
-  }
-
-
-
+  
 }
 
 int tamanhoNumero(char numero[]){
@@ -41,7 +30,7 @@ int tamanhoNumero(char numero[]){
 }
 
 void printNumero(char numero[]){
-  if(numero[i] == '0'){
+  if(numero[0] == '0'){
     printf("");
   } else if (numero[0] == '1'){
     printf("Mil ");
@@ -69,6 +58,9 @@ void printNumero(char numero[]){
   } else {
     printf(", ");
   }
+  if(numero[1] == '1' && numero[2] == '0' && numero[3] == '0'){
+    printf("")
+  }
 }
 
 int contaZero(char numero[]){
@@ -84,4 +76,30 @@ int contaZero(char numero[]){
 
   return n;
 
+}
+
+void mudaNumero(char numero[]){
+  if(tamanhoNumero(numero) == 1){
+    numero[3] = numero[0];
+    numero[0] = '0';
+    numero[1] = '0';
+    numero[2] = '0';
+    numero[4] = '\0';
+  } else if(tamanhoNumero(numero) == 2){
+    numero[2] = numero[0];
+    numero[3] = numero[1];
+    numero[0] = '0';
+    numero[1] = '0';
+    numero[4] = '\0';
+  } else if(tamanhoNumero(numero) == 3){
+    char aux[3];
+    aux[0] = numero[0];
+    aux[1] = numero[1];
+    aux[2] = numero[2];
+    numero[0] = '0';
+    numero[1] = aux[0];
+    numero[2] = aux[1];
+    numero[3] = aux[2];
+    numero[4] = '\0';
+  }
 }
