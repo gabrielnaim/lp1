@@ -33,33 +33,58 @@ void printNumero(char numero[]){
   if(numero[0] == '0'){
     printf("");
   } else if (numero[0] == '1'){
-    printf("Mil ");
+    printf("Mil");
   } else if (numero[0] == '2'){
-    printf("Dois mil ");
+    printf("Dois mil");
   } else if (numero[0] == '3'){
-    printf("Tres mil ");
+    printf("Tres mil");
   } else if (numero[0] == '4'){
-    printf("Quatro mil ");
+    printf("Quatro mil");
   } else if (numero[0] == '5'){
-    printf("Cinco mil ");
+    printf("Cinco mil");
   } else if (numero[0] == '6'){
-    printf("Seis mil ");
+    printf("Seis mil");
   } else if (numero[0] == '7'){
-    printf("Sete mil ");
+    printf("Sete mil");
   } else if (numero[0] == '8'){
-    printf("Oito mil ");
+    printf("Oito mil");
   } else if (numero[0] == '9'){
-    printf("Nove mil ");
+    printf("Nove mil");
   }
   if(numero[1] == '0' && numero[2] == '0' && numero[3] == '0'){
     printf("");
   } else if (numero[1] == '0'|| numero[2] == '0'){
-    printf("e ");
+    printf(" e ");
   } else {
     printf(", ");
   }
-  if(numero[1] == '1' && numero[2] == '0' && numero[3] == '0'){
-    printf("")
+  if (numero[1] == '0'){
+    printf("");
+  } else if(numero[1] == '1' && numero[2] == '0' && numero[3] == '0'){
+    printf("Cem");
+  } else if(numero[1] == '1'){
+    printf("Cento");
+  } else if(numero[1] == '2'){
+    printf("Duzentos");
+  } else if(numero[1] == '3'){
+    printf("Trezentos");
+  } else if(numero[1] == '4'){
+    printf("Quatrocentos");
+  } else if(numero[1] == '5'){
+    printf("Quinhentos");
+  } else if(numero[1] == '6'){
+    printf("Seiscentos");
+  } else if(numero[1] == '7'){
+    printf("Setecentos");
+  } else if(numero[1] == '8'){
+    printf("Oitocentos");
+  } else if(numero[1] == '9'){
+    printf("Novecentos");
+  }
+  if(numero[2] == '0' && numero[3] == '0'){
+    printf("");
+  } else {
+    printf(" e ");
   }
 }
 
