@@ -21,6 +21,7 @@ int main(void) {
   printNumero(numero);
   escreverNumero(numero);
 
+
 }
 
 int tamanhoNumero(char numero[]){
@@ -127,7 +128,7 @@ void escreverNumero(char numero[]){
   } else if(numero[2] == '9'){
     printf("Noventa");
   }
-  if(numero[2] == '0' || numero[3] == '0' || numero[2] == '1'){
+  if((numero[0] != '0' && numero[2] == '0') || numero[3] == '0' || numero[2] == '1'){
     printf("");
   } else if(numero[0] != '0' || numero[1] != '0' || numero[2] != '0') {
     printf(" e ");
