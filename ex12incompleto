@@ -3,7 +3,7 @@
 int main(void) {
 
   int tamanhoNumero(char numero[]);
-  void printNumero(char numero[])
+  void printNumero(char numero[]);
   void mudaNumero(char numero[]);
 
   char numero[5];
@@ -85,6 +85,69 @@ void printNumero(char numero[]){
     printf("");
   } else {
     printf(" e ");
+  }
+  if (numero[2] == '0'){
+    printf("");
+  } else if(numero[2] == '1' && numero[3] == '1'){
+    printf("Onze");
+  } else if(numero[2] == '1' && numero[3] == '2'){
+    printf("Doze");
+  } else if(numero[2] == '1' && numero[3] == '3'){
+    printf("Treze");
+  } else if(numero[2] == '1' && numero[3] == '4'){
+    printf("Quatorze");
+  } else if(numero[2] == '1' && numero[3] == '5'){
+    printf("Quinze");
+  } else if(numero[2] == '1' && numero[3] == '6'){
+    printf("Dezesseis");
+  } else if(numero[2] == '1' && numero[3] == '7'){
+    printf("Dezessete");
+  } else if(numero[2] == '1' && numero[3] == '8'){
+    printf("Dezoito");
+  } else if(numero[2] == '1' && numero[3] == '9'){
+    printf("Dezenove");
+  } else if(numero[2] == '2'){
+    printf("Vinte");
+  } else if(numero[2] == '3'){
+    printf("Trinta");
+  } else if(numero[2] == '4'){
+    printf("Quarenta");
+  } else if(numero[2] == '5'){
+    printf("Cinquenta");
+  } else if(numero[2] == '6'){
+    printf("Sessenta");
+  } else if(numero[2] == '7'){
+    printf("Setenta");
+  } else if(numero[2] == '8'){
+    printf("Oitenta");
+  } else if(numero[2] == '9'){
+    printf("Noventa");
+  }
+  if(numero[3] == '0'){
+    printf("");
+  } else {
+    printf(" e ");
+  }
+  if (numero[3] == '0'){
+    printf("");
+  } else if(numero[2] != '1' && numero[3] == '1'){
+    printf("Um");
+  } else if(numero[2] != '1' && numero[3] == '2'){
+    printf("Dois");
+  } else if(numero[2] != '1' && numero[3] == '3'){
+    printf("Tres");
+  } else if(numero[2] != '1' && numero[3] == '4'){
+    printf("Quatro");
+  } else if(numero[2] != '1' && numero[3] == '5'){
+    printf("Cinco");
+  } else if(numero[2] != '1' && numero[3] == '6'){
+    printf("Seis");
+  } else if(numero[2] != '1' && numero[3] == '7'){
+    printf("Sete");
+  } else if(numero[2] != '1' && numero[3] == '8'){
+    printf("Oito");
+  } else if(numero[2] != '1' && numero[3] == '9'){
+    printf("Nove");
   }
 }
 
