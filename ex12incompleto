@@ -151,7 +151,7 @@ void printNumero(char numero[]){
   }
 }
 
-int contaZero(char numero[]){
+/* int contaZero(char numero[]){
   int i = 0; int n = 0;
   while (numero[i] != '\0'){
     if(numero[i] == 0){
@@ -164,7 +164,7 @@ int contaZero(char numero[]){
 
   return n;
 
-}
+} */
 
 void mudaNumero(char numero[]){
   if(tamanhoNumero(numero) == 1){
