@@ -3,8 +3,9 @@
 int main(void) {
 
   int tamanhoNumero(char numero[]);
-  void printNumero(char numero[]);
+  void escreverNumero(char numero[]);
   void mudaNumero(char numero[]);
+  void printNumero(char numero[]);
 
   char numero[5];
 
@@ -14,9 +15,13 @@ int main(void) {
     printf("Digite um numero de até 4 casas decimais: ");
     scanf("%s", numero);
   }
-
-
   
+  printNumero(numero);
+  mudaNumero(numero);
+  printNumero(numero);
+  escreverNumero(numero);
+
+
 }
 
 int tamanhoNumero(char numero[]){
@@ -29,7 +34,7 @@ int tamanhoNumero(char numero[]){
 
 }
 
-void printNumero(char numero[]){
+void escreverNumero(char numero[]){
   if(numero[0] == '0'){
     printf("");
   } else if (numero[0] == '1'){
@@ -53,9 +58,9 @@ void printNumero(char numero[]){
   }
   if(numero[1] == '0' && numero[2] == '0' && numero[3] == '0'){
     printf("");
-  } else if (numero[1] == '0'|| numero[2] == '0'){
+  } else if ((numero[1] == '0' && numero[0] != '0') || (numero[2] == '0' && numero[0] != '0')){
     printf(" e ");
-  } else {
+  } else if(numero[0] != 0) {
     printf(", ");
   }
   if (numero[1] == '0'){
@@ -83,7 +88,7 @@ void printNumero(char numero[]){
   }
   if(numero[2] == '0' && numero[3] == '0'){
     printf("");
-  } else {
+  } else if(numero[0] != '0' || (numero[1] != '0' && numero[2] != '0')){
     printf(" e ");
   }
   if (numero[2] == '0'){
@@ -123,7 +128,7 @@ void printNumero(char numero[]){
   } else if(numero[2] == '9'){
     printf("Noventa");
   }
-  if(numero[3] == '0'){
+  if(numero[3] == '0' || numero[2] == '1'){
     printf("");
   } else {
     printf(" e ");
@@ -189,5 +194,14 @@ void mudaNumero(char numero[]){
     numero[2] = aux[1];
     numero[3] = aux[2];
     numero[4] = '\0';
+  }
+}
+
+void printNumero(char numero[]){
+  int i = 0;
+  printf("\n");
+  while (numero[i] != '\0'){
+    printf("%c", numero[i]);
+    i += 1;
   }
 }
