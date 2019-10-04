@@ -153,8 +153,8 @@ void escreverNumero(char numero[]){
     printf("Nove");
   } else if(numero[2] == '1' && numero[3] == '0'){
     printf("Dez");
-  } else if (numero[3] == '0'){
-    printf("");
+  } else if (numero[0] == '0' && numero[1] == '0' && numero[2] == '0' && numero[3] == '0'){
+    printf("Zero");
   }
   printf("\n");
 }
