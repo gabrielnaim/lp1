@@ -20,8 +20,9 @@ struct Parada {
 
 int main(void) {
   int n;
-  printf("Numero de abastecimentos: ");
+  printf("\nNumero de abastecimentos: ");
   scanf("%d", &n);
+  printf("\n");
 
   struct Parada parada[n];
 
@@ -114,9 +115,9 @@ void calculaTrajeto(struct Parada parada[], int n){
     kmplTrajeto[0] = (quilometrosTrajeto[0]/litrosTrajeto[0]);
 
     printf("Trajeto Abastecimento %d --> Abastecimento %d: \n", i, (i+1));
-    printf("%f quilometros percorridos\n", quilometrosTrajeto[0]);
-    printf("%f litros de gasolina utilizados\n", litrosTrajeto[0]);
-    printf("%.2fkm/l\n", kmplTrajeto[0]);
+    printf("%.2f quilometros percorridos\n", quilometrosTrajeto[0]);
+    printf("%.2f litros de gasolina utilizados\n", litrosTrajeto[0]);
+    printf("Utilizacao media de %.2fkm/l\n\n", kmplTrajeto[0]);
   
   } else {
     for (i = 0; i < n-1; i++){
@@ -131,7 +132,7 @@ void calculaTrajeto(struct Parada parada[], int n){
       printf("Trajeto Abastecimento %d --> Abastecimento %d: \n", i, (i+1));
       printf("%f quilometros percorridos\n", quilometrosTrajeto[i]);
       printf("%f litros de gasolina utilizados\n", litrosTrajeto[i]);
-      printf("%.2fkm/l\n", kmplTrajeto[i]);
+      printf("Utilizacao media de %.2fkm/l\n", kmplTrajeto[i]);
       printf("\n");
     }
     
@@ -145,19 +146,19 @@ void calculaTrajeto(struct Parada parada[], int n){
     quilometrosTotal = (quilometrosTrajeto[n-1] - quilometrosTrajeto[0]);
   }
 
-  printf("Quilometros totais percorridos: %f", quilometrosTotal);
+  printf("Quilometros totais percorridos: %.2f km\n", quilometrosTotal);
 
   float valorTotal = 0;
   for(i = 0; i < n; i++){
     valorTotal += parada[i].valor;
   }
 
-  printf("Valor gasto total, em Reais: %.2f", valorTotal);
+  printf("Valor gasto total: R$%.2f\n", valorTotal);
 
   float kmplTotal = 0;
 
   if(n == 2){
-    kmplTotal = ((kmplTrajeto[0] + kmplTrajeto[1])/2);
+    kmplTotal = kmplTrajeto[0];
   } else {
     for (i = 0; i < n-1; i++){
       kmplTotal += kmplTrajeto[i];
@@ -166,6 +167,6 @@ void calculaTrajeto(struct Parada parada[], int n){
     kmplTotal = kmplTotal/(n-1);
   }
 
-  printf("Media de quilometros/litro: %.2f\n", kmplTotal);
+  printf("Media de quilometros/litro: %.2f km/l\n", kmplTotal);
 
 }
