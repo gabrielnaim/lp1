@@ -13,18 +13,24 @@ int main(){
 	void ordenaVet(int vet[], int n);
 	void preencheVet(int vet[], int n);
 	void printVet(int vet[], int n, int q);
+  void vetorGeral(int vetGeral[], int vet1[], int vet2[], int vet3[], int n);
 	
 	int vet1[n]; preencheVet(vet1, n);
 	int vet2[n]; preencheVet(vet2, n);
 	int vet3[n]; preencheVet(vet3, n);
+  
+  int vetGeral[n*3]; vetorGeral(vetGeral, vet1, vet2, vet3, n);
+
 
 	ordenaVet(vet1, n);
   ordenaVet(vet2, n);
 	ordenaVet(vet3, n);
+  ordenaVet(vetGeral, n*3);
 
 	printVet(vet1, n, 1);
   printVet(vet2, n, 2);
   printVet(vet3, n, 3);
+  printVet(vetGeral, n*3, 4);
 
 	return 0;
 	
@@ -57,5 +63,14 @@ void ordenaVet(int vet[], int n){
         vet[i] = aux;
       }
     }
+  }
+}
+
+void vetorGeral(int vetGeral[], int vet1[], int vet2[], int vet3[], int n){
+  int i;
+  for(i = 0; i < n; i++){
+    vetGeral[i] = vet1[i];
+    vetGeral[i+n] = vet2[i];
+    vetGeral[i+n+n] = vet3[i];
   }
 }
