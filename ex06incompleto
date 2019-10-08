@@ -15,6 +15,7 @@ struct Parada {
   float abastecimento;
   float litros;
   float litrosTotal;
+  float valor;
 };
 
 int main(void) {
@@ -36,46 +37,56 @@ int main(void) {
 void lerParadas(struct Parada parada[], int n){
   int i;
   if (n == 2){
-    printf("Litros inicial: ");
+    printf("Quantidade de gasolina inicial no tanque em litros: ");
     scanf("%f", &parada[0].litros);
-    printf("Abastecimento inicial: ");
+    printf("Abastecimento inicial em litros: ");
     scanf("%f", &parada[0].abastecimento);
-    printf("Odometro inicial: ");
+    printf("Valor gasto inicial em Real: ");
+    scanf("%f", &parada[0].valor);
+    printf("Odometro inicial em quilometros: ");
     scanf("%f", &parada[0].odometro);
     parada[0].litrosTotal = parada[0].abastecimento + parada[0].litros;
 
-    printf("Litros final: ");
+    printf("Quantidade de gasolina final no tanque em litros: ");
     scanf("%f", &parada[n-1].litros);
-    printf("Abastecimento final: ");
+    printf("Abastecimento final em litros: ");
     scanf("%f", &parada[n-1].abastecimento);
-    printf("Odometro final: ");
+    printf("Valor gasto final em Real: ");
+    scanf("%f", &parada[n-1].valor);
+    printf("Odometro final em quilometros: ");
     scanf("%f", &parada[n-1].odometro);
      parada[n-1].litrosTotal = parada[n-1].abastecimento + parada[n-1].litros;
 
   } else{
-    printf("Litros inicial: ");
+    printf("Quantidade de gasolina inicial no tanque em litros: ");
     scanf("%f", &parada[0].litros);
-    printf("Abastecimento inicial: ");
+    printf("Abastecimento inicial em litros: ");
     scanf("%f", &parada[0].abastecimento);
-    printf("Odometro inicial: ");
+    printf("Valor gasto inicial em Real: ");
+    scanf("%f", &parada[0].valor);
+    printf("Odometro inicial em quilometros: ");
     scanf("%f", &parada[0].odometro);
     parada[0].litrosTotal = parada[0].abastecimento + parada[0].litros;
 
     for (i = 1; i < (n-1); i++){
-      printf("Litros na parada %d: ", i);
+      printf("Quantidade de litros na parada %d: ", i);
       scanf("%f", &parada[i].litros);
-      printf("Abastecimento na parada %d: ", i);
+      printf("Abastecimento na parada %d em litros: ", i);
       scanf("%f", &parada[i].abastecimento);
-      printf("Odometro na parada %d: ", i);
+      printf("Valor gasto na parada %d em Real: ", i);
+      scanf("%f", &parada[i].valor);
+      printf("Odometro na parada %d em quilometros: ", i);
       scanf("%f", &parada[i].odometro);
       parada[i].litrosTotal = parada[i].abastecimento + parada[i].litros;
     }
 
-    printf("Litros final: ");
+    printf("Quantidade de gasolina final no tanque em litros: ");
     scanf("%f", &parada[n-1].litros);
-    printf("Abastecimento final: ");
+    printf("Abastecimento final em litros: ");
     scanf("%f", &parada[n-1].abastecimento);
-    printf("Odometro final: ");
+    printf("Valor gasto final em Real: ");
+    scanf("%f", &parada[n-1].valor);
+    printf("Odometro final em quilometros: ");
     scanf("%f", &parada[n-1].odometro);
     parada[n-1].litrosTotal = parada[n-1].abastecimento + parada[n-1].litros;
   }
@@ -88,14 +99,33 @@ void calculaKmplTrajeto(struct Parada parada[], int n){
   
   if(n == 2){
     kmplTrajeto[i] = (parada[1].odometro - parada[0].odometro)/(parada[0].litrosTotal - parada[1].litros);
+
+    for (i = 0; i < n-1; i++){
+      printf("Trajeto Abastecimento %d --> Abastecimento %d: %.2fkm/l\n", i, (i+1), kmplTrajeto[i]);
+    }
   } else{
     for (i = 0; i < n-1; i++){
       kmplTrajeto[i] = (parada[i+1].odometro - parada[i].odometro)/(parada[i].litrosTotal - parada[i+1].litros);
     }
+
+    for (i = 0; i < n-1; i++){
+      printf("Trajeto Abastecimento %d --> Abastecimento %d: %.2fkm/l\n", i, (i+1), kmplTrajeto[i]);
+    }
+    
   }
 
-  for (i = 0; i < n-1; i++){
-    printf("Trajeto Abastecimento %d --> Abastecimento %d: %.2fkm/l", i, (i+1), kmplTrajeto[i]);
+  float kmplTotal = 0;
+
+  if(n == 2){
+    kmplTotal = ((kmplTrajeto[0] + kmplTrajeto[1])/2);
+  } else {
+    for (i = 0; i < n-1; i++){
+      kmplTotal += kmplTrajeto[i];
+    }
+
+    kmplTotal = kmplTotal/(n-1);
   }
-  
+
+  printf("Media de Km/l: %.2f\n", kmplTotal);
+
 }
