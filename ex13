@@ -6,7 +6,7 @@ fazer um programa em C que, após a leitura dos vetores coloque-os em ordem cres
 int main(){
 	int n;
 	
-	printf("\nTamanho do vetor: ");
+	printf("\nTamanho dos vetores: ");
 	scanf("%d", &n);
   printf("\n");
 	
@@ -21,7 +21,6 @@ int main(){
   
   int vetGeral[n*3]; vetorGeral(vetGeral, vet1, vet2, vet3, n);
 
-
 	ordenaVet(vet1, n);
   ordenaVet(vet2, n);
 	ordenaVet(vet3, n);
@@ -33,7 +32,6 @@ int main(){
   printVet(vetGeral, n*3, 4);
 
 	return 0;
-	
 }
 
 void printVet(int vet[], int n, int q){
