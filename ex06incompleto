@@ -56,7 +56,6 @@ void lerParadas(struct Parada parada[], int n){
     scanf("%f", &parada[1].valor);
     printf("Marcacao final do odometro, em quilometros: ");
     scanf("%f", &parada[1].odometro);
-
     parada[1].litrosTotal = parada[1].abastecimento + parada[1].litros;
 
     printf("\n");
@@ -103,38 +102,57 @@ void lerParadas(struct Parada parada[], int n){
 void calculaTrajeto(struct Parada parada[], int n){
   int i;
   float kmplTrajeto[n-1];
-  
-  float quilometrosTrajeto[n-1]; 
+  float quilometrosTrajeto[n-1];
+  float litrosTrajeto[n-1];
 
   if(n == 2){
+
     quilometrosTrajeto[0] = parada[1].odometro - parada[0].odometro;
 
-    kmplTrajeto[0] = (quilometrosTrajeto[0]/(parada[0].litrosTotal - parada[1].litros);
+    litrosTrajeto[0] = parada[0].litrosTotal - parada[1].litros;
+
+    kmplTrajeto[0] = (quilometrosTrajeto[0]/litrosTrajeto[0]);
+
+    printf("Trajeto Abastecimento %d --> Abastecimento %d: \n", i, (i+1));
+    printf("%f quilometros percorridos\n", quilometrosTrajeto[0]);
+    printf("%f litros de gasolina utilizados\n", litrosTrajeto[0]);
+    printf("%.2fkm/l\n", kmplTrajeto[0]);
+  
+  } else {
+    for (i = 0; i < n-1; i++){
+      quilometrosTrajeto[i] = parada[i+1].odometro - parada[i].odometro;
+
+      litrosTrajeto[i] = parada[i].litrosTotal - parada[i+1].litros;
+
+      kmplTrajeto[i] = (quilometrosTrajeto[i]/litrosTrajeto[i]);
+    }
 
     for (i = 0; i < n-1; i++){
-      printf("Trajeto Abastecimento %d --> Abastecimento %d: %.2fkm/l\n", i, (i+1), kmplTrajeto[i]);
-    }
-  } else{
-    for (i = 0; i < n-1; i++){
-      kmplTrajeto[i] = (parada[i+1].odometro - parada[i].odometro)/(parada[i].litrosTotal - parada[i+1].litros);
-    }
-
-    for (i = 0; i < n-1; i++){
-      printf("Trajeto Abastecimento %d --> Abastecimento %d: %.2fkm/l\n", i, (i+1), kmplTrajeto[i]);
+      printf("Trajeto Abastecimento %d --> Abastecimento %d: \n", i, (i+1));
+      printf("%f quilometros percorridos\n", quilometrosTrajeto[i]);
+      printf("%f litros de gasolina utilizados\n", litrosTrajeto[i]);
+      printf("%.2fkm/l\n", kmplTrajeto[i]);
+      printf("\n");
     }
     
   }
 
+  float quilometrosTotal;
+
   if(n == 2){
-    float quilometrosTotal = (parada[1].odometro - parada[0].odometro);
+    quilometrosTotal = quilometrosTrajeto[0];
   } else {
-    float quilometrosTotal = (parada[n].odometro - parada[0].odometro);
+    quilometrosTotal = (quilometrosTrajeto[n-1] - quilometrosTrajeto[0]);
   }
 
-  printf("Quilometros percorridos: ")
+  printf("Quilometros totais percorridos: %f", quilometrosTotal);
 
+  float valorTotal = 0;
+  for(i = 0; i < n; i++){
+    valorTotal += parada[i].valor;
+  }
 
-
+  printf("Valor gasto total, em Reais: %.2f", valorTotal);
 
   float kmplTotal = 0;
 
@@ -148,13 +166,6 @@ void calculaTrajeto(struct Parada parada[], int n){
     kmplTotal = kmplTotal/(n-1);
   }
 
-  printf("Media de Km/l: %.2f\n", kmplTotal);
-
-  float valorTotal = 0;
-  for(i = 0; i < n; i++){
-    valorTotal += parada[i].valor;
-  }
-
-  printf("Valor gasto total, em Reais: %.2f", valorTotal);
+  printf("Media de quilometros/litro: %.2f\n", kmplTotal);
 
 }
