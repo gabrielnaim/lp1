@@ -161,7 +161,7 @@ void calculaTrajeto(struct Parada parada[], int n){
     }
   }
 
-  printf("Quantidade de gasolina utilizada: %.2f", litrosUtilizados);
+  printf("Quantidade de gasolina utilizada: %.2f litros\n", litrosUtilizados);
 
 
   //Calcular km/l do percurso completo
@@ -194,4 +194,5 @@ void calculaTrajeto(struct Parada parada[], int n){
     printf("Gasolina restante no tanque: %.2f litros", parada[n].litrosTotal);
   }
   
+
 }
