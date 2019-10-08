@@ -106,7 +106,7 @@ void calculaTrajeto(struct Parada parada[], int n){
   float quilometrosTrajeto[n-1];
   float litrosTrajeto[n-1];
 
-  printf("----------------------------------\n")
+  printf("----------------------------------\n");
 
   if(n == 2){
 
