@@ -4,8 +4,8 @@
 fazer um programa em C que, após a leitura dos vetores coloque-os em ordem crescente. */
 
 int main(){
-	int n;
-	
+int n;
+
 	printf("\nTamanho dos vetores: ");
 	scanf("%d", &n);
   printf("\n");
