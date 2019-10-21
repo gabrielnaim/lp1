@@ -13,10 +13,10 @@ int main(void) {
 
   char numero[5];
 
-  printf("Digite um numero de até 4 casas decimais: ");
+  printf("Digite um numero de até 4 digitos: ");
   scanf("%s", numero);
   while(tamanhoNumero(numero) > 4){
-    printf("Digite um numero de até 4 casas decimais: ");
+    printf("Digite um numero de até 4 digitos: ");
     scanf("%s", numero);
   }
   
