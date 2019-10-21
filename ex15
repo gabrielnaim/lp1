@@ -8,7 +8,8 @@
 Faça um programa em C que :
 a) Calcule a porcentagem de motoristas com menos de 21 anos;
 b) Calcule quantas mulheres são da capital;
-c) Calcule quantos motoristas do interior do estado tem idade maior que 60 anos;d) Verifique se existe alguma mulher com idade maior que 60 anos; */
+c) Calcule quantos motoristas do interior do estado tem idade maior que 60 anos;
+d) Verifique se existe alguma mulher com idade maior que 60 anos; */
 
 struct Pessoa {
   int nascimento;
@@ -48,19 +49,23 @@ int main(void) {
     if(pessoa[i].idade < 21){
       menos21 += 1;
     }
+    menos21 = ((menos21*100)/n);
+
     if((pessoa[i].sexo == 'F' || pessoa[i].sexo == 'f') && pessoa[i].procedencia == 0){
       mulheresCapital += 1;
     }
+
     if((pessoa[i].procedencia = 1) && (pessoa[i].idade > 60)){
       interiorMais60 += 1;
     }
-    if((pessoa[i].sexo == 'F' || pessoa[i].sexo == 'f')) && (pessoa[i].idade > 60)){
-      
+
+    if((pessoa[i].sexo == 'F' || pessoa[i].sexo == 'f') && (pessoa[i].idade > 60)){ 
+      mulherMais60 += 1;
     }
   }
 
-  menos21 = ((menos21*100)/n);
-
-
-
+  printf("Porcentagem de motoristas com menos de 21 anos: %.1f'%'\n", menos21);
+  printf("Motoristas mulheres da capital: %d mulher(es)\n", mulheresCapital);
+  printf("Motoristas do interior do estado que possuem mais de 60 anos: %d pessoa(s)\n", interiorMais60);
+  printf("Motoristas mulheres que possuem mais de 60 anos: %d mulher(es)\n", mulherMais60);
 }
