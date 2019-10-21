@@ -22,7 +22,5 @@ int fat(int n){
 	} else {
 		return printf("digite um inteiro positivo.");
 	}
-	
-	return 0;
 
 }
