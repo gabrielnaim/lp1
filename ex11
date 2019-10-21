@@ -8,17 +8,22 @@ e imprima todas as palavras que contenham três ou mais vogais. */
 int main(){
 	char cadeia[100];
 	char aux[30];
+	int i = 0;
 
 	printf("Escreva a cadeia: ");
 	scanf("%[^\n]", cadeia);
+	while(cadeia[i] != '\0'){
+		i += 1;
+	} cadeia[i] = ' ';
+	cadeia [i+1] = '\0';
 
-	printf("Palavras com 3 ou mais vogais: ");
+	printf("Palavras com 3 ou mais vogais: \n");
 
-	int i = 0; int j = 0; int k = 0; int vogais = 0;
+	i = 0; int j = 0; int k = 0; int vogais = 0;
 	while (cadeia[i] != '\0'){
 		if(cadeia[i] == ' '){
 			if(vogais >= 3){
-				printf("%s, ", aux);	
+				printf("%s\n", aux);
 			}
 			for(k = 0; k < 30; k++){
 				aux[k] = '\0';
